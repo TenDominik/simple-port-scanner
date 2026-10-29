@@ -25,3 +25,16 @@ This is a classic **TCP connect scan** — the simplest and least stealthy metho
 3. Build (`Ctrl+Shift+B`)
 
 ## Usage
+
+The program will prompt for a target IP and scan ports 1–1024.
+
+## Current limitations / roadmap
+
+- **Scanning is sequential, not multithreaded** — each port is scanned one at a time with up to a ~500ms timeout, so a full 1–1024 scan can take a noticeable amount of time, especially against hosts that silently drop packets instead of actively refusing. **Multithreading is planned** to scan many ports concurrently and bring this down significantly.
+- No support yet for scanning a custom port range or a list of specific ports (currently hardcoded to 1–1024)
+- No hostname resolution — IP addresses only for now
+- IPv4 only
+
+## License
+
+MIT — see [LICENSE](LICENSE)
